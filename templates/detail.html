@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Information</h3>
+    <p>Name: {{ data_info.name }}</p>
+    <p>Email: {{ data_info.email }}</p>
+    <p>Address: {{ data_info.address }}</p>
+<a href="{% url 'update' pk=data_info.pk %}", class="btn btn-info">Update</a>
+<a href="{% url 'delete' pk=data_info.pk %}", class="btn btn-danger">Delete</a>
+<hr>
+
+<h3>Payment List</h3>
+<table class="table">
+    <thead>
+        <th>Employee Name</th>
+        <th>Amount</th>
+        <th>Status</th>
+    </thead>
+    {% for payment in data_info.payment.all %}
+    <tr>
+        <td>{{ payment.employee }}</td>
+        <td>{{ payment.amount }}</td>
+        <td>{{ payment.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

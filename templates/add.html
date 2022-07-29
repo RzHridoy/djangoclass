@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if form.instance.pk %}
+<h3>Update Employee Information</h3>
+{% else %}
+<h3>Add Employee Information</h3>
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit", value="Add", name="add">
+</form>
+{% endblock %}

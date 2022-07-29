@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Delete Data for {{ data.name }}</h3>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit", value="Delete", name="delete">
+    <a href="{% url 'detail' pk=data.pk %}">Cancel</a>
+</form>
+{% endblock %}

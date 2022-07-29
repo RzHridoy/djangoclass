@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ heading }}</h1>
+
+<ol>
+    {% for data in data_list %}
+    <li><a href="{% url 'detail' pk=data.pk %}">{{ data.name }}</a></li><hr>
+    {% endfor %}
+</ol>
+
+{% endblock %}
